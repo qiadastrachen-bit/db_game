@@ -1,0 +1,206 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>碎梦童话 · 第一期 封面之野</title>
+    <!-- 霞鹜文楷（本地 vendor，见 assets/fonts/README.md） -->
+    <link rel="stylesheet" href="./assets/fonts/lxgw/style.css" />
+    <style>
+      /* 调色板 CSS 变量：与 src/data/palette.json 一一对应（Boot 场景会再注入校验） */
+      :root {
+        --c-bg-deep: #0e0a14;
+        --c-bg-mid: #1a1224;
+        --c-outline: #3d2f4a;
+        --c-violet: #5a4868;
+        --c-blood: #6b3048;
+        --c-blood-hi: #8b4048;
+        --c-gold: #d4b86a;
+        --c-gold-hi: #f0e0a0;
+        --c-glow: #f8eeb8;
+        --c-mist: #7a9ab0;
+        --c-mist-hi: #98c0d8;
+        --c-moss: #506040;
+        --c-moss-dark: #3e5030;
+        --c-pale: #e8e0d4;
+        --c-skin: #fff0e0;
+        --c-yolk: #f0c848;
+        --c-paper-dim: #b8b0a2;
+        --c-ink: #2a2233;
+        --c-ink-deep: #16101f;
+        --c-sob-green: #6a7a68;
+        --c-sob-green-dark: #46524a;
+        --c-well-blue: #4a6a8a;
+        --c-rust-red: #9a4a3a;
+        --c-shadow: #080610;
+        --font-ui: 'LXGW WenKai', 'Noto Serif SC', 'Microsoft YaHei', serif;
+      }
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        height: 100%;
+        background: #000000; /* 游戏外背景纯黑 */
+        overflow: hidden;
+        /* 舞台在任意窗口尺寸下水平垂直居中 */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      /* 舞台：JS 锁定为 480×270 整数倍尺寸；canvas 与 DOM 文字层叠放 */
+      #stage {
+        position: relative;
+        line-height: 0;
+      }
+      #game-root canvas {
+        display: block;
+        /* 不用 image-rendering: pixelated——canvas CSS 尺寸恒为整数倍，
+           像素感由纹理 NEAREST 过滤保证，线性放大不会切碎文字 */
+      }
+      /* ===================== DOM 文字覆盖层 ===================== */
+      #ui-overlay {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 480px; /* 逻辑坐标系 480×270，整体 transform: scale(s) 放大 */
+        height: 270px;
+        transform-origin: 0 0;
+        pointer-events: none; /* 默认穿透；交互控件自行开启 */
+        line-height: 1.45;
+        font-family: var(--font-ui);
+        color: var(--c-pale);
+        user-select: none;
+        -webkit-user-select: none;
+        z-index: 10;
+      }
+      #layer-scene,
+      #layer-hud {
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+      }
+      #layer-hud {
+        z-index: 20;
+      }
+      .ui-veil {
+        position: absolute;
+        inset: 0;
+        background: rgba(8, 6, 16, 0.6);
+        pointer-events: auto;
+      }
+      .ui-veil.clear {
+        background: transparent;
+      }
+      .ui-panel {
+        position: absolute;
+        background: rgba(14, 10, 20, 0.96);
+        border: 1px solid var(--c-outline);
+        box-sizing: border-box;
+        pointer-events: auto;
+      }
+      .ui-panel::before,
+      .ui-panel::after {
+        content: '';
+        position: absolute;
+        left: 6px;
+        right: 6px;
+        height: 1px;
+        background: rgba(212, 184, 106, 0.7);
+      }
+      .ui-panel::before {
+        top: 4px;
+      }
+      .ui-panel::after {
+        bottom: 4px;
+      }
+      .ui-btn {
+        position: absolute;
+        pointer-events: auto;
+        background: var(--c-ink-deep);
+        color: var(--c-pale);
+        border: 1px solid var(--c-outline);
+        font-family: var(--font-ui);
+        cursor: pointer;
+        padding: 0;
+        text-align: center;
+        box-sizing: border-box;
+      }
+      .ui-btn:hover {
+        border-color: var(--c-glow);
+        background: var(--c-bg-mid);
+      }
+      .ui-btn.selected {
+        border-color: var(--c-gold);
+      }
+      .ui-btn.gold {
+        border-color: var(--c-gold);
+        color: var(--c-glow);
+      }
+      .ui-text {
+        position: absolute;
+        white-space: pre-wrap;
+        word-break: break-all;
+        pointer-events: none;
+      }
+      .ui-text.interactive {
+        pointer-events: auto;
+        cursor: pointer;
+      }
+      .ui-dialog {
+        position: absolute;
+        background: rgba(14, 10, 20, 0.95);
+        border: 1px solid var(--c-outline);
+        border-top: 1px solid rgba(212, 184, 106, 0.7);
+        box-sizing: border-box;
+        pointer-events: auto;
+        cursor: pointer;
+      }
+      .ui-toast {
+        position: absolute;
+        background: rgba(14, 10, 20, 0.92);
+        border: 1px solid var(--c-outline);
+        color: var(--c-glow);
+        text-align: center;
+        pointer-events: none;
+        transition: opacity 0.25s;
+        box-sizing: border-box;
+      }
+      .ui-cursor {
+        animation: ui-blink 1s steps(1) infinite;
+      }
+      @keyframes ui-blink {
+        50% {
+          opacity: 0;
+        }
+      }
+      .ui-slider {
+        position: absolute;
+        pointer-events: auto;
+        accent-color: var(--c-gold);
+        background: var(--c-ink-deep);
+        height: 8px;
+      }
+      #loading-tip {
+        position: fixed;
+        inset: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--c-paper-dim);
+        font-family: var(--font-ui);
+        font-size: 14px;
+        letter-spacing: 0.4em;
+        pointer-events: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="stage">
+      <div id="game-root"></div>
+      <div id="ui-overlay"></div>
+    </div>
+    <div id="loading-tip">翻 页 中 ……</div>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>

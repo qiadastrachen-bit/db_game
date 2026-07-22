@@ -1,0 +1,12 @@
+{
+  "tileSize": 16,
+  "scale": 4,
+  "tiles": [
+    "grass",
+    "dirt",
+    "stone",
+    "thorn",
+    "wood",
+    "fragment"
+  ]
+}

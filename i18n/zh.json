@@ -1,0 +1,109 @@
+{
+  "note": "界面文案（简体中文）。游戏叙事内容见 src/data/*.zh.json。结构预留多语言扩展：新增语言时建立 en.json 等同构文件。",
+  "app": {
+    "title": "碎梦童话",
+    "subtitle": "规则怪谈 · 第一期 · 封面之野",
+    "credit": "原作 / 署名：吃鸡腿的鸡腿姐🐧",
+    "loading": "翻 页 中 ……"
+  },
+  "menu": {
+    "start": "开始新的翻阅",
+    "continue": "读取存档",
+    "gallery": "图鉴",
+    "settings": "设置",
+    "staff": "制作名单",
+    "back": "返回",
+    "emptySlot": "（空页）",
+    "quickSlot": "快速存档",
+    "slot": "档位 {n}",
+    "loadConfirm": "读取此页存档？",
+    "noSave": "这里还没有任何存档。",
+    "close": "✕ 关闭",
+    "escBack": "Esc 返回"
+  },
+  "gallery": {
+    "endings": "结局画廊",
+    "rules": "律令图鉴",
+    "locked": "？？？",
+    "lockedDesc": "这道爪印还没有主人的名字。",
+    "unlockedCount": "已解锁 {a} / {b}",
+    "ruleUnread": "尚未翻到此页",
+    "ruleCount": "已录律令 {a} / {b}",
+    "footnotes": "页边注脚",
+    "mainRules": "明文五律"
+  },
+  "settings": {
+    "title": "设置",
+    "master": "主音量",
+    "bgm": "音乐",
+    "sfx": "音效",
+    "hint": "拖动滑条调整 · Esc 返回"
+  },
+  "hud": {
+    "keys": "方向键/WASD 移动 · E 交互 · Esc 菜单 · J 律令图鉴 · Q 快速存档",
+    "interact": "E 交互",
+    "saved": "已写入存档",
+    "quickSaved": "已存入快速存档",
+    "emptySlotToast": "该档位是空页",
+    "saveFailed": "存档失败",
+    "midnight": "午夜降临",
+    "chapter": "封面之野",
+    "pageRift": "页缝",
+    "restored": "已从存档页继续翻阅",
+    "codexClose": "J / Esc 合上",
+    "pages": "纸页 {marks} {a}/{b}",
+    "pagePicked": "拾得散落纸页（{a}/{b}）",
+    "wellPagePicked": "拾得井底残页（{a}/{b}）",
+    "wellEject": "井把你吐回了封面",
+    "wellDiveHint": "← → 移动 · 跳 · 踩开关收刺 · 右台落下取纸页",
+    "pagesLegend": "▣已拾 · 顺序：原野·原野·井底",
+    "savePoint": "纸页记事",
+    "savePointHint": "在此写入正式档位 · Q 仍可随时快速存档"
+  },
+  "ruleScroll": {
+    "kicker": "律令 · 第 {n} 页",
+    "footnoteKicker": "页边注脚 · 第 {n} 页",
+    "confirm": "已阅 · 录入图鉴（E / 点击）",
+    "severityHard": "硬律 · 违反即被改写",
+    "footnoteHard": "注脚 · 违反即被改写"
+  },
+  "pause": {
+    "title": "纸页暂停",
+    "resume": "继续翻阅",
+    "save": "写入存档",
+    "saveAtPoint": "正式存档请前往「纸页记事」",
+    "settings": "设置",
+    "toMenu": "合上绘本（回主菜单）",
+    "chooseSlot": "选择档位",
+    "load": "读取存档",
+    "writeSlot": "写入档位 {n}",
+    "deskTitle": "纸页记事",
+    "deskLoad": "读取存档"
+  },
+  "dialog": {
+    "next": "▼ E / 点击 继续"
+  },
+  "ending": {
+    "bad": "坏 结 局",
+    "pass": "通 行 结 局",
+    "recorded": "已录入结局画廊",
+    "toMenu": "回到封面",
+    "staff": "制作名单",
+    "nextRealm": "下一境预告"
+  },
+  "prologue": {
+    "skip": "Esc 跳过序章",
+    "next": "E / 点击 翻页",
+    "progress": "{a} / {b}"
+  },
+  "staff": {
+    "title": "制作名单",
+    "role_author": "原作 · 文案 · 署名",
+    "author": "吃鸡腿的鸡腿姐🐧",
+    "role_dev": "程序 · 像素 · 程序化音频",
+    "dev": "《碎梦童话》第一期 开发组",
+    "engine": "引擎：Phaser 3 · Vite · TypeScript",
+    "thanks": "感谢翻阅。第二期「林间残页」再见。",
+    "back": "回到封面"
+  }
+}

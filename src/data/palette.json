@@ -1,0 +1,30 @@
+{
+  "name": "碎梦童话 · 暗黑绘本调色板（24 色）",
+  "note": "基础 16 色与 assets/palette.md 对齐；扩展 8 色为第一期主题色：纸页、墨痕、月白（沿用 glow）、哽咽灰绿、井蓝、麦金（沿用 gold）、锈红点缀。Boot 场景会将本表注入为 CSS 变量 --c-<name>。",
+  "colors": [
+    { "name": "bg-deep", "hex": "#0e0a14", "usage": "深夜底色 / 最深暗部" },
+    { "name": "bg-mid", "hex": "#1a1224", "usage": "暗部过渡" },
+    { "name": "outline", "hex": "#3d2f4a", "usage": "统一 1px 深色描边" },
+    { "name": "violet", "hex": "#5a4868", "usage": "暗紫高光 / 剪影亮面" },
+    { "name": "blood", "hex": "#6b3048", "usage": "暗红强调" },
+    { "name": "blood-hi", "hex": "#8b4048", "usage": "暗红亮面" },
+    { "name": "gold", "hex": "#d4b86a", "usage": "金色强调 / 麦金" },
+    { "name": "gold-hi", "hex": "#f0e0a0", "usage": "金色亮面" },
+    { "name": "glow", "hex": "#f8eeb8", "usage": "月白 / 光源暖白" },
+    { "name": "mist", "hex": "#7a9ab0", "usage": "雾蓝强调" },
+    { "name": "mist-hi", "hex": "#98c0d8", "usage": "雾蓝亮面 / 井水反光" },
+    { "name": "moss", "hex": "#506040", "usage": "苔藓绿" },
+    { "name": "moss-dark", "hex": "#3e5030", "usage": "苔藓暗部" },
+    { "name": "pale", "hex": "#e8e0d4", "usage": "纸页苍白" },
+    { "name": "skin", "hex": "#fff0e0", "usage": "暖白高光" },
+    { "name": "yolk", "hex": "#f0c848", "usage": "蛋黄 / 落日核心" },
+    { "name": "paper-dim", "hex": "#b8b0a2", "usage": "纸页暗面 / 次级文字" },
+    { "name": "ink", "hex": "#2a2233", "usage": "墨痕正文" },
+    { "name": "ink-deep", "hex": "#16101f", "usage": "墨痕深处" },
+    { "name": "sob-green", "hex": "#6a7a68", "usage": "哽咽灰绿（午夜植被）" },
+    { "name": "sob-green-dark", "hex": "#46524a", "usage": "哽咽灰绿暗部" },
+    { "name": "well-blue", "hex": "#4a6a8a", "usage": "井蓝" },
+    { "name": "rust-red", "hex": "#9a4a3a", "usage": "锈红点缀（爪印/警示）" },
+    { "name": "shadow", "hex": "#080610", "usage": "纯黑深渊" }
+  ]
+}

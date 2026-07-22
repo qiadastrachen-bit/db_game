@@ -1,0 +1,71 @@
+{
+  "realm": "cover_field",
+  "note": "封面之野 · 五条明规则 + 页边注脚。title 为律令原文（禁止改义），body 为图鉴/经卷展示用背景阐释。severity=hard 表示违反即触发坏结局。footnote=true 为页边注脚（不计入入口五律文案）。",
+  "rules": [
+    {
+      "id": "cover_midnight_grass",
+      "realm": "cover_field",
+      "severity": "hard",
+      "title": "午夜时，凡足底触碰发出哽咽的植被者，其轮廓将被吸入地面。",
+      "body": "午夜降临后，原野上部分植被会转为灰绿并发出低低的哽咽。它们是上一轮循环被筛选者的残响，足底一旦触碰，轮廓便会被地面收走。绕行，或等待黎明。",
+      "trigger": { "type": "zone", "targetId": "sob_grass", "condition": "isMidnight" },
+      "onBreak": { "outcomeId": "end_cover_claw", "fadeMessage": "你的存在不再归属于活物。" }
+    },
+    {
+      "id": "cover_no_moon",
+      "realm": "cover_field",
+      "severity": "hard",
+      "title": "夜空残缺的那一角，严禁任何触碰或托举。",
+      "body": "夜空右上角缺了一块，那是被瑞比撕去重写的一页。残片悬在原处，泛着不该属于夜色的微光。任何触碰或托举的企图，都会被视为主动翻页。",
+      "trigger": { "type": "interact", "targetId": "moon_fragment" },
+      "onBreak": { "outcomeId": "end_cover_claw", "fadeMessage": "你的存在不再归属于活物。" }
+    },
+    {
+      "id": "cover_rabbit_freeze",
+      "realm": "cover_field",
+      "severity": "hard",
+      "title": "当兔子的眼睑静止不眨时，必须立即终止一切移动。",
+      "body": "兔子是瑞比安放在原野上的句读。当它的眼睑静止不眨，叙事便暂停落笔——此刻仍在移动的存在，会被笔锋直接划入主叙事之外。立即停下，等它眨眼。",
+      "trigger": { "type": "event", "targetId": "rabbit_stare" },
+      "onBreak": { "outcomeId": "end_cover_claw", "fadeMessage": "你的存在不再归属于活物。" }
+    },
+    {
+      "id": "cover_no_signpost",
+      "realm": "cover_field",
+      "severity": "hard",
+      "title": "请不要看指示牌。",
+      "body": "封面上细密的爪印构成了隐蔽的度量衡，每道划痕对应上一轮循环在此被筛选的个体。指示牌立在其中最密的一处，上面写着的不是方向——看了，就被度量了。",
+      "trigger": { "type": "interact", "targetId": "signpost" },
+      "onBreak": { "outcomeId": "end_cover_claw", "fadeMessage": "你的存在不再归属于活物。" }
+    },
+    {
+      "id": "cover_watch_step",
+      "realm": "cover_field",
+      "severity": "hard",
+      "title": "请小心看路。",
+      "body": "爪印的密度指示着此界域的过滤阈值。路面上那些颜色略深的爪形划痕并非装饰——每一步落在其上，都等于主动报名参与下一轮筛选。看清脚下再走。",
+      "trigger": { "type": "zone", "targetId": "claw_marks" },
+      "onBreak": { "outcomeId": "end_cover_claw", "fadeMessage": "你的存在不再归属于活物。" }
+    },
+    {
+      "id": "cover_no_well",
+      "realm": "cover_field",
+      "severity": "hard",
+      "footnote": true,
+      "title": "请不要俯身倾听井口。",
+      "body": "井不是井。井底有时会叫出一个你从未听过、却像摇篮曲里哼过的名字。回应、俯身倾听——都会被那声音认领。失足坠入井心，则是另一页：那里藏着残页，也藏着把你吐回封面的力量。",
+      "trigger": { "type": "interact", "targetId": "speaking_well" },
+      "onBreak": { "outcomeId": "end_cover_claw", "fadeMessage": "你的存在不再归属于活物。" }
+    },
+    {
+      "id": "cover_no_mushroom",
+      "realm": "cover_field",
+      "severity": "hard",
+      "footnote": true,
+      "title": "午夜后，请勿采摘或踩踏斑点蕈。",
+      "body": "白蛋醒来之时，有人以哽咽为植被赋声，并授以吸收轮廓的能力。原野上的斑点蕈是那一笔的余墨——白昼尚静，午夜一至便会醒着等待被触碰的轮廓。",
+      "trigger": { "type": "interact", "targetId": "spot_mushroom", "condition": "isMidnight" },
+      "onBreak": { "outcomeId": "end_cover_claw", "fadeMessage": "你的存在不再归属于活物。" }
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "note": "结局图鉴。bad=坏结局（静帧+文字，无血腥表现）；pass=通行结局。banner 对应 assets/banners/ 下的过场横幅。",
+  "endings": [
+    {
+      "id": "end_cover_claw",
+      "title": "封面之爪",
+      "realm": "cover_field",
+      "type": "bad",
+      "banner": "cover",
+      "fadeMessage": "你的存在不再归属于活物。",
+      "description": "瑞比的笔锋轻轻落下。你的轮廓从主叙事中被划去，压平、晾干，成为封面上一道新的爪印——度量衡又多了一格，等待下一个翻阅者踩上来。",
+      "hint": "违反封面之野任意一条律令。"
+    },
+    {
+      "id": "end_cover_pass",
+      "title": "通行 · 封面之野",
+      "realm": "cover_field",
+      "type": "pass",
+      "banner": "paths",
+      "fadeMessage": "你仍是「你」。",
+      "description": "五条律令全部遵守，并凑齐散落纸页，你走到小路尽头。纸页在脚下卷起，露出通往下一境的缝隙——林间残页在页缝之后等你。",
+      "hint": "遵守全部律令，拾齐三片纸页，沿小路走到封面之野的尽头。"
+    }
+  ]
+}

@@ -1,0 +1,5 @@
+/* 霞鹜文楷（LXGW WenKai）webfont · 本地 vendor 入口
+   来源：https://github.com/chawyehsu/lxgw-wenkai-webfont （v1.7.0, jsdelivr）
+   字体本体许可：SIL Open Font License 1.1（见 OFL.txt）
+   仅引入常规字重（400）；按 unicode-range 分片，浏览器按需加载 */
+@import url('./lxgwwenkai-regular.css');
